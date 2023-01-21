@@ -1,18 +1,36 @@
 import React from "react";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { Index } from "./pages/index";
+import { Form } from "./pages/Form";
+import { Panel } from "./pages/Panel";
+import { NotFound } from "./pages/NotFound";
+import { Login } from "./pages/Login";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Index />,
+  },
+  {
+    path: "/form",
+    element: <Form />,
+  },
+  {
+    path: "/login",
+    element: <Login />,
+  },
+  {
+    path: "panel",
+    element: <Panel />,
+  },
+  {
+    path: "*",
+    element: <NotFound />,
+  },
+]);
 
 function App() {
-  return (
-    <div>
-      <h1 className="text-2xl font-bold">Wellytics</h1>
-
-      <p className="text-justify">
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iure minus
-        impedit vero, maxime dicta at porro possimus qui eligendi ad facilis eos
-        beatae quia molestias inventore facere ut! Omnis, repellat.
-      </p>
-
-    </div>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;
